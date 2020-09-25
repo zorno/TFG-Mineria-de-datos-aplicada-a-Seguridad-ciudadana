@@ -41,7 +41,6 @@ CREATE TABLE HORA (
 	PRIMARY KEY( id_hora )
 );
 
-
 CREATE TABLE PAIS (
 	id_pais NUMBER,
 	nombre CHAR(100),
@@ -150,7 +149,7 @@ CREATE TABLE COMISARIA (
 
 CREATE TABLE HISTORIAL_COMISARIA (
 	id_his_comisaria NUMBER,
-	cod_comisaria CHAR(20),
+	cod_comisaria NUMBER,
 	gasto_material NUMBER,
 	gasto_vehiculos NUMBER,
 	gasto_informatica NUMBER,
@@ -227,8 +226,8 @@ CREATE TABLE DELITO (
 	cod_comisaria NUMBER,
 	cod_prov NUMBER,
 	cod_lugar NUMBER,
-	nacionalidad_agr CHAR(2),
-	nacionalidad_vic CHAR(2),
+	nacionalidad_agr NUMBER,
+	nacionalidad_vic NUMBER,
 	edad_agr NUMBER,
 	edad_vic NUMBER,
 	FOREIGN KEY(cod_delito) REFERENCES CARACTERISTICA_DELITO(id_tipo_delito),
@@ -250,7 +249,6 @@ CREATE SEQUENCE REGISTRO_COMUNIDAD_seq START WITH 1;
 CREATE SEQUENCE REGISTRO_PROVINCIA_seq START WITH 1;
 CREATE SEQUENCE COMISARIA_seq START WITH 1;
 CREATE SEQUENCE HISTORIAL_COMISARIA_seq START WITH 1;
-
 
 CREATE OR REPLACE TRIGGER DELITO_incr
 BEFORE INSERT ON DELITO
